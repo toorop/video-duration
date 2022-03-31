@@ -1,0 +1,29 @@
+{
+  "name": "video-info",
+  "version": "1.0.0",
+  "description": "return info about a video file",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "testEnvironment": "node",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest --config jestconfig.json",
+    "test-ci": "jest --ci test/*",
+    "test-watch": "jest --clearCache && jest --config jestconfig.json --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^27.4.1",
+    "jest": "^27.5.1",
+    "prettier": "^2.6.1",
+    "ts-jest": "^27.1.4",
+    "tslint": "^6.1.3",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^4.6.3"
+  }
+}
