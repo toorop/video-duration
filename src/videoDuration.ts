@@ -61,7 +61,6 @@ export class VideoDuration {
   // returns file type
   public async getFileType(): Promise<string> {
     const buff = Buffer.alloc(50)
-    const header = Buffer.from('ftypmp4')
     const file = await fs.open(this._path, 'r')
     const { buffer } = await file.read(buff, 0, 50, 0)
     await file.close()
