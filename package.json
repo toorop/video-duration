@@ -4,12 +4,13 @@
   "description": "return info about a video file",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "type": "module",
   "files": [
     "dist"
   ],
   "testEnvironment": "node",
   "scripts": {
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "tslint -p tsconfig.json",
     "build": "tsc",
     "test": "jest --config jestconfig.json",
     "test-ci": "jest --ci test/*",

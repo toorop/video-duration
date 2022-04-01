@@ -1,5 +1,5 @@
-const fsp = require('fs').promises
-const fs = require('fs')
+import fs = require('fs')
+const fsp = fs.promises
 
 const magicNumbers = {
   mp4: [0x66, 0x74, 0x79, 0x70],
@@ -70,7 +70,7 @@ export class VideoDuration {
     const { buffer } = await file.read(buff, 0, 50, 0)
     await file.close()
 
-    for (const key in magicNumbers) {
+    for (const key of Object.keys(magicNumbers)) {
       const sig = Buffer.from(magicNumbers[key])
       if (buffer.indexOf(sig) !== -1) {
         return key
