@@ -1,9 +1,16 @@
 {
   "name": "video-info",
-  "version": "1.0.0",
-  "description": "return info about a video file",
+  "version": "0.1.0",
+  "description": "Get duration of a video file",
+  "keywords": [
+    "video",
+    "duration",
+    "mp4"
+  ],
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "author": "Stéphane Depierrepont",
+  "license": "MIT",
   "files": [
     "dist"
   ],
@@ -14,10 +21,17 @@
     "build": "tsc",
     "test": "jest --config jestconfig.json",
     "test-ci": "jest --ci test/*",
-    "test-watch": "jest --clearCache && jest --config jestconfig.json --watch"
+    "test-watch": "jest --clearCache && jest --config jestconfig.json --watch",
+    "prepare": "npm run build",
+    "prepublishonly": "npm run test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
   },
-  "author": "",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/toorop/video-duration.git"
+  },
   "devDependencies": {
     "@types/jest": "^27.4.1",
     "jest": "^27.5.1",
