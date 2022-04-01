@@ -1,5 +1,5 @@
 {
-  "name": "video-info",
+  "name": "video-duration",
   "version": "0.1.0",
   "description": "Get duration of a video file",
   "keywords": [
