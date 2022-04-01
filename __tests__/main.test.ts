@@ -1,12 +1,14 @@
 const path = require('path')
 import { VideoDuration } from '../src/videoDuration'
 
+const fileNotFound = 'file/not/found'
 const fileMp4 = path.join(__dirname, 'test.mp4')
 
 test('Contructor', () => {
-  const videoInfo = new VideoDuration(fileMp4)
+  let videoInfo = new VideoDuration(fileMp4)
   expect(videoInfo).toBeInstanceOf(VideoDuration)
   expect(videoInfo.path).toBe(fileMp4)
+  expect(() => new VideoDuration(fileNotFound)).toThrowError('File not found')
 })
 
 test('mp4', async () => {

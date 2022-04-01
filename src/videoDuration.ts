@@ -1,4 +1,5 @@
-const fs = require('fs').promises
+const fsp = require('fs').promises
+const fs = require('fs')
 
 const magicNumbers = {
   mp4: [0x66, 0x74, 0x79, 0x70],
@@ -16,6 +17,10 @@ export class VideoDuration {
   private _path: string
 
   constructor(path: string) {
+    // check if file exists
+    if (!fs.existsSync(path)) {
+      throw new Error('File not found')
+    }
     this._path = path
   }
 
@@ -34,7 +39,7 @@ export class VideoDuration {
 
     const buff = Buffer.alloc(200)
     const header = Buffer.from('mvhd')
-    const file = await fs.open(this._path, 'r')
+    const file = await fsp.open(this._path, 'r')
     const { buffer } = await file.read(buff, 0, 200, 0)
     await file.close()
 
@@ -61,7 +66,7 @@ export class VideoDuration {
   // returns file type
   public async getFileType(): Promise<string> {
     const buff = Buffer.alloc(50)
-    const file = await fs.open(this._path, 'r')
+    const file = await fsp.open(this._path, 'r')
     const { buffer } = await file.read(buff, 0, 50, 0)
     await file.close()
 
