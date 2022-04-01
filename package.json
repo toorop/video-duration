@@ -1,6 +1,6 @@
 {
   "name": "video-duration",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Get duration of a video file",
   "keywords": [
     "video",
@@ -16,7 +16,7 @@
   ],
   "testEnvironment": "node",
   "scripts": {
-    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "format": "prettier --write \"src/**/*.ts\"",
     "lint": "tslint -p tsconfig.json",
     "build": "tsc",
     "test": "jest --config jestconfig.json",
